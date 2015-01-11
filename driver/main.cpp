@@ -107,7 +107,7 @@ void dispatchMotors(AIRegistry::client &client, Serial &serial)
 
 int main()
 {
-  AIRegistry::client registry(127.0.0.1, 5006);
+  AIRegistry::client registry("127.0.0.1", 5006);
 
   Serial serial(SERIAL_PORT, SERIAL_BAUDRATE);
   Parser parser_global(SERIAL_LINE_DELIM);
