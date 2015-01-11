@@ -1,14 +1,2 @@
-DOCUMENTATION
-=============
-
-Run ``build.sh``. It depends on ``generate-md``.
-
-FIRMWARE
-========
-
-``Arduino`` dependant
-
-DRIVER
-======
-
-Plain CPP but ``libKNM`` dependant.
+# Hardware
+Hardware-specific
