@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bootstrap</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        padding-top: 30px;
+      }
+      .main {
+        background-color: #fff;
+        border: 1px solid #CCC;
+        padding: 40px;
+      }
+      .container {
+        width: 1100px;
+      }
+      .nav-list {
+        font-size: 17px;
+      }
+      .nav-header {
+        font-size: 17px;
+        text-transform: none;
+        line-height: 30px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+	<a href="#hardware">Hardware</a>
+        <ul class="nav nav-list"><li><a href="#an_h1_header">An h1 header</a></li><li><a href="#an_h2_header">An h2 header</a></li><li><a href="#an_h3_header">An h3 header</a></li><li><a href="#size__material______color">size  material      color</a></li></ul>
+      </div>
+      <div class="span9 main">
+        <a name="an_h1_header"></a><h1>An h1 header<a class="anchorlink" href="#an_h1_header"></a></h1>
+<p>Paragraphs are separated by a blank line.</p>
+<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, <code>monospace</code>. Itemized lists
+look like:</p>
+<ul class="list">
+<li>this one</li>
+<li>that one</li>
+<li>the other one</li>
+</ul>
+<p>Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.</p>
+<blockquote>
+<p>Block quotes are
+written like so.</p>
+<p>They can span multiple paragraphs,
+if you like.</p>
+</blockquote>
+<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex. &quot;it&#39;s all in
+chapters 12--14&quot;). Three dots ... will be converted to an ellipsis.</p>
+<a name="an_h2_header"></a><h2>An h2 header<a class="anchorlink" href="#an_h2_header"></a></h2>
+<p>Here&#39;s a numbered list:</p>
+<ol class="list">
+<li>first item</li>
+<li>second item</li>
+<li>third item</li>
+</ol>
+<p>Note again how the actual text starts at 4 columns in (4 characters
+from the left side). Here&#39;s a code sample:</p>
+<pre class="prettyprint"># Let me re-iterate ...
+for i in 1 .. 10 { do-something(i) }</pre>
+<p>As you probably guessed, indented 4 spaces. By the way, instead of
+indenting the block, you can use delimited blocks, if you like:</p>
+<pre class="prettyprint">define foobar() {
+    print &quot;Welcome to flavor country!&quot;;
+}</pre>
+<p>(which makes copying &amp; pasting easier). You can optionally mark the
+delimited block for Pandoc to syntax highlight it:</p>
+<pre class="prettyprint">import time
+# Quick, count to ten!
+for i in range(10):
+    # (but not *too* quick)
+    time.sleep(0.5)
+    print i</pre>
+<a name="an_h3_header"></a><h3>An h3 header<a class="anchorlink" href="#an_h3_header"></a></h3>
+<p>Now a nested list:</p>
+<ol class="list">
+<li><p>First, get these ingredients:</p>
+<ul class="list">
+<li>carrots</li>
+<li>celery</li>
+<li>lentils</li>
+</ul>
+</li>
+<li><p>Boil some water.</p>
+</li>
+<li><p>Dump everything in the pot and follow
+this algorithm:</p>
+<pre class="prettyprint">find wooden spoon
+uncover pot
+stir
+cover pot
+balance wooden spoon precariously on pot handle
+wait 10 minutes
+goto first step (or shut off burner when done)</pre>
+<p>Do not bump wooden spoon or it will fall.</p>
+</li>
+</ol>
+<p>Notice again how text always lines up on 4-space indents (including
+that last line which continues item 3 above). Here&#39;s a link to <a href="http://foo.bar">a
+website</a>. Here&#39;s a link to a <a href="local-doc.html">local
+doc</a>. Here&#39;s a footnote [^1].</p>
+<p>[^1]: Footnote text goes here.</p>
+<p>Tables can look like this:</p>
+<a name="size__material______color"></a><h2>size  material      color<a class="anchorlink" href="#size__material______color"></a></h2>
+<hr>
+<p>9     leather       brown
+10    hemp canvas   natural
+11    glass         transparent</p>
+<p>Table: Shoes, their sizes, and what they&#39;re made of</p>
+<p>(The above is the caption for the table.) Here&#39;s a definition list:</p>
+<p>apples
+  : Good for making applesauce.
+oranges
+  : Citrus!
+tomatoes
+  : There&#39;s no &quot;e&quot; in tomatoe.</p>
+<p>Again, text is indented 4 spaces. (Alternately, put blank lines in
+between each of the above definition list lines to spread things
+out more.)</p>
+<p>Inline math equations go in like so: $\omega = d\phi / dt$. Display
+math should get its own line and be put in in double-dollarsigns:</p>
+<p>$I = \int \rho R^{2} dV$</p>
+<p>Done.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

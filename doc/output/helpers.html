@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>OCADrone Hardware</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        padding-top: 30px;
+      }
+      .main {
+        background-color: #fff;
+        border: 1px solid #CCC;
+        padding: 40px;
+      }
+      .container {
+        width: 1100px;
+      }
+      .nav-list {
+        font-size: 17px;
+      }
+      .nav-header {
+        font-size: 17px;
+        text-transform: none;
+        line-height: 30px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+	<h2><a href="index.html">OCADrone Hardware</a></h2>
+	<h3>General OCADrone</h3>
+	<ul>
+	  <li><a href="http://ocadrone.com">Project Website</a></li>
+	  <li><a href="https://ocadrone-wiki.mine42.com/">Project Wiki</a></li>
+	</ul>
+	<h3>Global</h3>
+	<ul>
+	  <li><a href="architecture.html">Architecture</a></li>
+	  <li><a href="protocol.html">Protocol</a></li>
+	  <li><a href="isensor.html">ISensor</a></li>
+	  <li><a href="iactuator.html">IActuator</a></li>
+	  <li><a href="helpers.html">Helpers</a></li>
+	</ul>
+	<h3>Sensors</h3>
+	<ul>
+	  <li><a href="distance.html">Distance</a></li>
+	  <li><a href="forces.html">Forces</a></li>
+	  <li><a href="gps.html">GPS</a></li>
+	  <li><a href="statistics.html">Statistics (debug)</a></li>
+	</ul>
+	<h3>Actuators</h3>
+	<ul>
+	  <li><a href="motors.html">Motors</a></li>
+	</ul>
+	<h3>Building</h3>
+	<ul>
+	  <li><a href="frame.html">Frame</a></li>
+	</ul>
+	<h4>Current page navigation</h4>
+        <ul class="nav nav-list"><li><a href="#helpers">Helpers</a></li><li><a href="#string">String</a></li><li><a href="#serial">Serial</a></li></ul>
+      </div>
+      <div class="span9 main">
+        <a name="helpers"></a><h1>Helpers<a class="anchorlink" href="#helpers"></a></h1>
+<p>Helpers are a simple collection of function the different part of the project may need:</p>
+<a name="string"></a><h2>String<a class="anchorlink" href="#string"></a></h2>
+<blockquote>
+<p>String splitString(String s, char parser, int index)</p>
+</blockquote>
+<p>Split a string with a delimiter character.</p>
+<blockquote>
+<p>int countCharacter(String s, char c);</p>
+</blockquote>
+<p>Count how many time a character appears in a string.</p>
+<a name="serial"></a><h2>Serial<a class="anchorlink" href="#serial"></a></h2>
+<blockquote>
+<p>void resetSerial();</p>
+</blockquote>
+<p>Reset the stats of serial usage (internal).</p>
+<blockquote>
+<p>void serialCharIncrement(int i);</p>
+</blockquote>
+<p>Increment the number of character sent (internal).</p>
+<blockquote>
+<p>void serialCommandIncrement();</p>
+</blockquote>
+<p>Increment the number of command sent (internal).</p>
+<blockquote>
+<p>int getCharSent();</p>
+</blockquote>
+<p>Get how many characters were sent to the driver during last loop.</p>
+<blockquote>
+<p>int getCommandsSent();</p>
+</blockquote>
+<p>Get how many commands were sent to the driver during last loop.</p>
+<blockquote>
+<p>void SEND(value)</p>
+</blockquote>
+<p>Send a string, character, int or float to the driver.</p>
+<blockquote>
+<p>void SENDLN(value)</p>
+</blockquote>
+<p>Send a string, character, int or float with a newline to the driver.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

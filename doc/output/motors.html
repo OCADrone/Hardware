@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>OCADrone Hardware</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        padding-top: 30px;
+      }
+      .main {
+        background-color: #fff;
+        border: 1px solid #CCC;
+        padding: 40px;
+      }
+      .container {
+        width: 1100px;
+      }
+      .nav-list {
+        font-size: 17px;
+      }
+      .nav-header {
+        font-size: 17px;
+        text-transform: none;
+        line-height: 30px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+	<h2><a href="index.html">OCADrone Hardware</a></h2>
+	<h3>General OCADrone</h3>
+	<ul>
+	  <li><a href="http://ocadrone.com">Project Website</a></li>
+	  <li><a href="https://ocadrone-wiki.mine42.com/">Project Wiki</a></li>
+	</ul>
+	<h3>Global</h3>
+	<ul>
+	  <li><a href="architecture.html">Architecture</a></li>
+	  <li><a href="protocol.html">Protocol</a></li>
+	  <li><a href="isensor.html">ISensor</a></li>
+	  <li><a href="iactuator.html">IActuator</a></li>
+	  <li><a href="helpers.html">Helpers</a></li>
+	</ul>
+	<h3>Sensors</h3>
+	<ul>
+	  <li><a href="distance.html">Distance</a></li>
+	  <li><a href="forces.html">Forces</a></li>
+	  <li><a href="gps.html">GPS</a></li>
+	  <li><a href="statistics.html">Statistics (debug)</a></li>
+	</ul>
+	<h3>Actuators</h3>
+	<ul>
+	  <li><a href="motors.html">Motors</a></li>
+	</ul>
+	<h3>Building</h3>
+	<ul>
+	  <li><a href="frame.html">Frame</a></li>
+	</ul>
+	<h4>Current page navigation</h4>
+        <ul class="nav nav-list"><li><a href="#motors">Motors</a></li><li><a href="#propeller">Propeller</a></li><li><a href="#plugin">Plugin</a></li></ul>
+      </div>
+      <div class="span9 main">
+        <a name="motors"></a><h1>Motors<a class="anchorlink" href="#motors"></a></h1>
+<blockquote>
+<p>Interface from <a href="iactuator.html">IActuator</a>.</p>
+</blockquote>
+<p>Every motors code is available in <code>Motor/</code> folder.</p>
+<p>We use 4 motors
+<em> MOTOR1
+</em> MOTOR2
+<em> MOTOR3
+</em> MOTOR4</p>
+<p class="img-container"><img src="assets/img/motor2.png" alt="motor"></p>
+<a name="propeller"></a><h2>Propeller<a class="anchorlink" href="#propeller"></a></h2>
+<blockquote>
+<p>Please be warned that the propellers must be removed while processing to tests</p>
+</blockquote>
+<p class="img-container"><img src="assets/img/motor1.png" alt="motor"></p>
+<a name="plugin"></a><h2>Plugin<a class="anchorlink" href="#plugin"></a></h2>
+<p>The yellow data wire of the esc must be plugged in a PWM Arduino Pin.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

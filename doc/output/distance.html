@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>OCADrone Hardware</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        padding-top: 30px;
+      }
+      .main {
+        background-color: #fff;
+        border: 1px solid #CCC;
+        padding: 40px;
+      }
+      .container {
+        width: 1100px;
+      }
+      .nav-list {
+        font-size: 17px;
+      }
+      .nav-header {
+        font-size: 17px;
+        text-transform: none;
+        line-height: 30px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+	<h2><a href="index.html">OCADrone Hardware</a></h2>
+	<h3>General OCADrone</h3>
+	<ul>
+	  <li><a href="http://ocadrone.com">Project Website</a></li>
+	  <li><a href="https://ocadrone-wiki.mine42.com/">Project Wiki</a></li>
+	</ul>
+	<h3>Global</h3>
+	<ul>
+	  <li><a href="architecture.html">Architecture</a></li>
+	  <li><a href="protocol.html">Protocol</a></li>
+	  <li><a href="isensor.html">ISensor</a></li>
+	  <li><a href="iactuator.html">IActuator</a></li>
+	  <li><a href="helpers.html">Helpers</a></li>
+	</ul>
+	<h3>Sensors</h3>
+	<ul>
+	  <li><a href="distance.html">Distance</a></li>
+	  <li><a href="forces.html">Forces</a></li>
+	  <li><a href="gps.html">GPS</a></li>
+	  <li><a href="statistics.html">Statistics (debug)</a></li>
+	</ul>
+	<h3>Actuators</h3>
+	<ul>
+	  <li><a href="motors.html">Motors</a></li>
+	</ul>
+	<h3>Building</h3>
+	<ul>
+	  <li><a href="frame.html">Frame</a></li>
+	</ul>
+	<h4>Current page navigation</h4>
+        <ul class="nav nav-list"><li><a href="#distance_sensors">Distance sensors</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#code">Code</a></li><li><a href="#compatible_sensors">Compatible sensors</a></li></ul>
+      </div>
+      <div class="span9 main">
+        <a name="distance_sensors"></a><h1>Distance sensors<a class="anchorlink" href="#distance_sensors"></a></h1>
+<blockquote>
+<p>Interface from <a href="isensor.html">ISensor</a>.</p>
+</blockquote>
+<p>Every Distance sensor code is available in <code>Distance/</code> folder.</p>
+<p>In order to find distance between objects surrounding a drone, we use <strong>ultrasonic sansors</strong>. This kind of sensors are perfectly adapted to our project because they have a high frequency of updating (around 30 per seconds) and a range from 1cm to 250cm.</p>
+<p>In our basic configuration we use 8 sensors:</p>
+<ul class="list">
+<li>FRONT</li>
+<li>LEFT</li>
+<li>BACK</li>
+<li>RIGHT</li>
+<li>UNDER</li>
+<li>UP</li>
+<li>FRONTLEFT (this have to be with 20 degrees angle from FRONT sensor)</li>
+<li>FRONTRIGHT (this have to be with 20 degrees angle from FRONT sensor)</li>
+</ul>
+<p class="img-container"><img src="assets/img/sensors.svg" alt="sensors image"></p>
+<p>In order to make our project the most generic and reliable possible, we use the <a href="http://playground.arduino.cc/Code/NewPing">NewPing Arduino library</a> which offers a lot of hardware compatibility (See in Compatible sensors section).</p>
+<a name="configuration"></a><h2>Configuration<a class="anchorlink" href="#configuration"></a></h2>
+<p>A classical ultrasonic sensor use <strong>4 Arduino pins</strong>. We&#39;ll describe it under:</p>
+<ul class="list">
+<li>VCC (+5 Volt pin on Arduino)</li>
+<li>GND (GND pin on Arduino)</li>
+<li>TRIGGER (Configurable in <code>config.hpp</code>)</li>
+<li>ECHO (Configurable in <code>config.hpp</code>)</li>
+</ul>
+<a name="code"></a><h2>Code<a class="anchorlink" href="#code"></a></h2>
+<p>In order to manipulate multiple ultrasonic sensors, we provide a class <code>Distance/PingPool.h</code>. This class manage all our different sensors and update them as soon are they are available.</p>
+<p>Once they are updated, they send the value to the driver through Serial communication in the following format: <code>SENSOR1;SENSOR2;...</code></p>
+<a name="compatible_sensors"></a><h2>Compatible sensors<a class="anchorlink" href="#compatible_sensors"></a></h2>
+<ul class="list">
+<li>SR04 (We used this one)</li>
+<li>SRF05</li>
+<li>SRF06</li>
+<li>DYP-ME007</li>
+<li>Parallax PING)))</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

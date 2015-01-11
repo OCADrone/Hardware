@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>OCADrone Hardware</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        padding-top: 30px;
+      }
+      .main {
+        background-color: #fff;
+        border: 1px solid #CCC;
+        padding: 40px;
+      }
+      .container {
+        width: 1100px;
+      }
+      .nav-list {
+        font-size: 17px;
+      }
+      .nav-header {
+        font-size: 17px;
+        text-transform: none;
+        line-height: 30px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+	<h2><a href="index.html">OCADrone Hardware</a></h2>
+	<h3>General OCADrone</h3>
+	<ul>
+	  <li><a href="http://ocadrone.com">Project Website</a></li>
+	  <li><a href="https://ocadrone-wiki.mine42.com/">Project Wiki</a></li>
+	</ul>
+	<h3>Global</h3>
+	<ul>
+	  <li><a href="architecture.html">Architecture</a></li>
+	  <li><a href="protocol.html">Protocol</a></li>
+	  <li><a href="isensor.html">ISensor</a></li>
+	  <li><a href="iactuator.html">IActuator</a></li>
+	  <li><a href="helpers.html">Helpers</a></li>
+	</ul>
+	<h3>Sensors</h3>
+	<ul>
+	  <li><a href="distance.html">Distance</a></li>
+	  <li><a href="forces.html">Forces</a></li>
+	  <li><a href="gps.html">GPS</a></li>
+	  <li><a href="statistics.html">Statistics (debug)</a></li>
+	</ul>
+	<h3>Actuators</h3>
+	<ul>
+	  <li><a href="motors.html">Motors</a></li>
+	</ul>
+	<h3>Building</h3>
+	<ul>
+	  <li><a href="frame.html">Frame</a></li>
+	</ul>
+	<h4>Current page navigation</h4>
+        <ul class="nav nav-list"><li><a href="#statistics">Statistics</a></li></ul>
+      </div>
+      <div class="span9 main">
+        <a name="statistics"></a><h1>Statistics<a class="anchorlink" href="#statistics"></a></h1>
+<blockquote>
+<p>Interface from <a href="isensor.html">ISensor</a>.</p>
+</blockquote>
+<p>This module is used to analyse how the firmware do:</p>
+<blockquote>
+<p>See <a href="study.html">our study on how our firmware do</a>!</p>
+</blockquote>
+<p>Every Statistics code is available in <code>Statistics/</code> folder.</p>
+<p>This is a fake module used in order to get datas from the firmware. This maybe activated or deactivated in the <code>config.hpp</code> file as it is only useful during development process or benchmarking.</p>
+<p>Available datas:</p>
+<ul class="list">
+<li>Time spent for each update loop</li>
+<li>current Arduino time (<code>millis()</code>)</li>
+<li>Remaining free memory on the Arduino</li>
+<li>Number of characters printed per update loops (number of <code>SERIAL.print()</code>)</li>
+<li>Number of commands send per update loops (number of <code>SERIAL.println()</code>)</li>
+<li>Number of characters read per update loops (number of <code>SERIAL.getchar()</code>)</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
