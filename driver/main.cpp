@@ -2,10 +2,6 @@
 
 #include	"main.hpp"
 
-double front = 0;
-double side = 0;
-
-int first = 1;
 
 void dispatchCmd(std::string &cmd, AIRegistry::client &client)
 {
@@ -39,14 +35,14 @@ int getMotorValue(AIRegistry::client &registry, std::string path)
 
   tmp = registry.query(AIRegistry::READ, path);
   istringstream(tmp) >> res;
-  std::cout << path << " : GET : " << res << std::endl; 
+  //  std::cout << path << " : GET : " << res << std::endl; 
   return (res);
 }
 
 
 void dispatchMotors(AIRegistry::client &client, Serial &serial)
 {
-  std::cout << "MOTTTTTTTTTTOR" << std::endl;
+  // std::cout << "MOTTTTTTTTTTOR" << std::endl;
   int m1, m2, m3, m4;
   std::stringstream str;
 
@@ -55,29 +51,6 @@ void dispatchMotors(AIRegistry::client &client, Serial &serial)
   m3 = getMotorValue(client, PATH_MOTOR3);
   m4 = getMotorValue(client, PATH_MOTOR4);
 
-  if (first == 1 && m1 == 30 && m2 == 30 && m3 == 69 && m4 == 30)
-    {
-      first = 0;
-      return;
-    }
-  if (first == 1)
-    return;
-  //  m2 = front * 100 + side * 100;
-  //m3 = front * -100 + side * 100;
-  //m4 = front * 100;
-  if (m1 == 0 && m1 != 30 && m2 != 30)
-    {
-      m1 = 1;
-      //      return;
-    }
-
-
- 
-
-  m1 = (-front * 100 + side * 100) / 180 * 100 + 30;
-  m2 = (front * 100 + side * 100) / 180 * 100 + 30;
-  m3 = (front * 100 - side * 100) / 180 * 100 + 30;
-  m4 = (-front * 100 - side * 100) / 180 * 100 + 30;
 
   if (m1 <30)
     m1 = 30;
@@ -102,7 +75,6 @@ void dispatchMotors(AIRegistry::client &client, Serial &serial)
   str << '\n';
   std::string f = str.str();
   serial.write(f);
-  std::cout << "OK :: " << f << std::endl;
 }
 
 int main()
@@ -125,7 +97,7 @@ int main()
     {
       i++;
       //Do motors
-      if (i == 10)
+      if (i == 20)
 	{
 	  dispatchMotors(registry, serial);
 	  i =0;
@@ -147,6 +119,5 @@ int main()
 
       
     }
-
   registry.disconnect();
 }

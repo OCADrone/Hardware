@@ -66,7 +66,7 @@ void loop() {
 
 
 //  gps.update();
-position.update();
+  position.update();
 //  stats.update();
 //  forces.update();
 //  volts.update();  

@@ -34,7 +34,7 @@ void Position::setup()
       while(1);
     }
 }
-
+// Ox, Oy, Oz, Gx, Gy, Gz,tmp,altitude 
 void Position::update()
 {
   float seaLevelPressure = SENSORS_PRESSURE_SEALEVELHPA;
@@ -51,6 +51,12 @@ void Position::update()
     {
       float seaLevelPressure = SENSORS_PRESSURE_SEALEVELHPA;
       /* 'orientation' should have valid .roll and .pitch fields */
+      /* Calculate the heading using the magnetometer */
+      mag.getEvent(&mag_event);
+      dof.magGetOrientation(SENSOR_AXIS_Z, &mag_event, &orientation);
+      
+      SEND(orientation.heading);
+      SEND(SERIAL_OUTPUT_DELIM);      
       SEND(orientation.roll);
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(orientation.pitch);
@@ -62,15 +68,8 @@ void Position::update()
       SEND(accel_event.acceleration.z);
       SEND(SERIAL_OUTPUT_DELIM);
     }
-  
-  /* Calculate the heading using the magnetometer */
-  mag.getEvent(&mag_event);
-  if (dof.magGetOrientation(SENSOR_AXIS_Z, &mag_event, &orientation))
-    {
-      /* 'orientation' should have valid .heading data now */
-      SEND(orientation.heading);
-      SEND(SERIAL_OUTPUT_DELIM);
-    }
+
+
 
   /* Calculate the altitude using the barometric pressure sensor */
   bmp.getEvent(&bmp_event);
@@ -79,13 +78,12 @@ void Position::update()
       /* Get ambient temperature in C */
       float temperature;
       bmp.getTemperature(&temperature);
-      /* Convert atmospheric pressure, SLP and temp to altitude    */
-      SEND(bmp.pressureToAltitude(seaLevelPressure,
-					  bmp_event.pressure,
-					  temperature)); 
+      SEND(temperature);
       SEND(SERIAL_OUTPUT_DELIM);
-      /* Display the temperature */
-      SENDLN(temperature);
+      /* Convert atmospheric pressure, SLP and temp to altitude    */
+      SENDLN(bmp.pressureToAltitude(seaLevelPressure,
+				  bmp_event.pressure,
+				  temperature)); 
     }
   
 }

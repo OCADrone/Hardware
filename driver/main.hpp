@@ -5,6 +5,8 @@
 #define DRIVER 1 //Little hack to avoid inclusion of ARDUINO libs
 #define BUFFER_LEN 254
 
+#define IS_DEBUG 1
+
 #include        <KNM/KNM.hh>
 #include        <KNM/net.hh>
 

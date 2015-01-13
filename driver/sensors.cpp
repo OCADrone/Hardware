@@ -2,9 +2,6 @@
 #include "sensors.hpp"
 #include "main.hpp"
 
-extern double front;
-extern double side;
-
 void parse_distance(Parser &parser, AIRegistry::client &client)
 {
   std::string tmp;
@@ -53,41 +50,34 @@ double angleToRad(std::string &s)
 
 void parse_force(Parser &parser, AIRegistry::client &client)
 {
-  std::string tmp;
-  std::stringstream res;
+  std::string tmp, ox, oy, oz, ax, ay, az;
+  std::stringstream ores, ares;
 
   parser.getToken(tmp);
-  parser.getToken(tmp);
-  side = ::atof(tmp.c_str());
-  res << angleToRad(tmp);
-  res << ';';
-  parser.getToken(tmp);
-  front = ::atof(tmp.c_str());
-  res << angleToRad(tmp);
-  res << ';';
-  parser.getToken(tmp);
-  res << angleToRad(tmp);
-  //  std::cout << res.str() << std::endl;
-  client.query(AIRegistry::WRITE, PATH_ORIENTATION, res.str());
+  parser.getToken(ox);
+  ores << angleToRad(ox);
+  ores << ';';
+  parser.getToken(oy);
+  ores << angleToRad(oy);
+  ores << ';';
+  parser.getToken(oz);
+  ores <<  angleToRad(oz);
+  client.query(AIRegistry::WRITE, PATH_ORIENTATION, ores.str());
+
+  parser.getToken(ax);
+  ares << ax;
+  ares << ';';
+  parser.getToken(ay);
+  ares << ay;
+  ares << ';';
+  parser.getToken(az);
+  ares <<  az;
+  client.query(AIRegistry::WRITE, PATH_SPEED, ares.str());
 
   client.query(AIRegistry::WRITE, PATH_ROT_SPEED, "1;1;0");
 
-   client.query(AIRegistry::WRITE, PATH_SPEED, "100000;10000;100");
-
-  /*  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_GX, tmp);
-  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_GY, tmp);
-  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_GZ, tmp);
-
-  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_MX, tmp);
-  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_MY, tmp);
-  parser.getToken(tmp);
-  client.query(registry::WRITE, PATH_FORCES_MZ, tmp);
-  */
+   std::cout << "Orientation (deg) : " << ox << ";" << oy << ";" << oz << "  (rad) : " << ores.str() << std::endl;
+   std::cout << "Acceleration (N) : " << ax << ";" << ay << ";" << az << "  (N) : " << ares.str() << std::endl;
 }
 
 void parse_statistics(Parser &parser, AIRegistry::client &client)
