@@ -51,17 +51,11 @@ void dispatchMotors(AIRegistry::client &client, Serial &serial)
   m3 = getMotorValue(client, PATH_MOTOR3);
   m4 = getMotorValue(client, PATH_MOTOR4);
 
-
-  if (m1 <30)
-    m1 = 30;
-  if (m2 <30)
-    m2 = 30;
-  if (m3 <30)
-    m3 = 30;
-  if (m4 <30)
-    m4 = 30;
-
-
+  m1 = m1 + 30;
+  m2 = m2 + 30;
+  m3 = m3 + 30;
+  m4 = m4 + 30;
+ 
   str << M_IDENTIFIER;
   str << SERIAL_OUTPUT_DELIM;
   str <<  m1;
@@ -97,7 +91,7 @@ int main()
     {
       i++;
       //Do motors
-      if (i == 20)
+      if (i == 30)
 	{
 	  dispatchMotors(registry, serial);
 	  i =0;

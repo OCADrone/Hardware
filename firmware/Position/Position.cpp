@@ -54,19 +54,23 @@ void Position::update()
       /* Calculate the heading using the magnetometer */
       mag.getEvent(&mag_event);
       dof.magGetOrientation(SENSOR_AXIS_Z, &mag_event, &orientation);
-      
-      SEND(orientation.heading);
-      SEND(SERIAL_OUTPUT_DELIM);      
       SEND(orientation.roll);
+      SEND(SERIAL_OUTPUT_DELIM);      
+      SEND(-orientation.pitch);      
       SEND(SERIAL_OUTPUT_DELIM);
-      SEND(orientation.pitch);
+      SEND(orientation.heading);
       SEND(SERIAL_OUTPUT_DELIM);
-      SEND(accel_event.acceleration.x);
+
+      SEND(accel_event.acceleration.x);  
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(accel_event.acceleration.y);
+
+      SEND(SERIAL_OUTPUT_DELIM);
+
+      SEND(-accel_event.acceleration.z);
+
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(accel_event.acceleration.z);
-      SEND(SERIAL_OUTPUT_DELIM);
     }
 
 
