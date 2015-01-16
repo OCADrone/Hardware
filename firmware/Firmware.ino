@@ -46,8 +46,8 @@ void readSerial(String &cmd)
 
 void setup() {
   SERIAL.begin(SERIAL_BAUDRATE);
-  pingPool.setup();
-  gps.setup();
+  //  pingPool.setup();
+  // gps.setup();
   position.setup();
 //  forces.setup(); //Old Force sensors
 //  stats.setup();

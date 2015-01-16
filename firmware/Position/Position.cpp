@@ -43,6 +43,7 @@ void Position::update()
   sensors_event_t mag_event;
   sensors_event_t bmp_event;
   sensors_vec_t   orientation;
+
   SEND(F_IDENTIFIER);
   SEND(SERIAL_OUTPUT_DELIM);
   /* Calculate pitch and roll from the raw accelerometer data */
@@ -60,20 +61,12 @@ void Position::update()
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(orientation.heading);
       SEND(SERIAL_OUTPUT_DELIM);
-
       SEND(accel_event.acceleration.x);  
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(accel_event.acceleration.y);
-
       SEND(SERIAL_OUTPUT_DELIM);
-
-      SEND(-accel_event.acceleration.z);
-
-      SEND(SERIAL_OUTPUT_DELIM);
-      SEND(accel_event.acceleration.z);
+      SEND(-accel_event.acceleration.z / 1.0448975);
     }
-
-
 
   /* Calculate the altitude using the barometric pressure sensor */
   bmp.getEvent(&bmp_event);

@@ -91,7 +91,7 @@ int main()
     {
       i++;
       //Do motors
-      if (i == 30)
+      if (i > 35)
 	{
 	  dispatchMotors(registry, serial);
 	  i =0;

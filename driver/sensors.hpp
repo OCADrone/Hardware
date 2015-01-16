@@ -15,7 +15,7 @@
 //#include "drone.hh"
 
 #define FORCE_UNIT 1000
-#define FORCE_GRAVITY 10
+#define FORCE_GRAVITY 11
 #define FORCE_TIME 1000000.0
 
 void parse_distance(Parser&, AIRegistry::client &);
