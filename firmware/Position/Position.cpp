@@ -8,6 +8,7 @@ void Position::setup()
   bmp   = Adafruit_BMP085_Unified(18001);
   gyro  = Adafruit_L3GD20_Unified(20);
   dof   = Adafruit_10DOF();
+  altitude = -1;
   /* Initialise the sensors */
   if(!accel.begin())
     {
@@ -65,7 +66,8 @@ void Position::update()
       SEND(SERIAL_OUTPUT_DELIM);
       SEND(accel_event.acceleration.y);
       SEND(SERIAL_OUTPUT_DELIM);
-      SEND(-accel_event.acceleration.z / 1.0448975);
+      SEND(-accel_event.acceleration.z / 1.0448975); //TODO: what?????
+      SEND(SERIAL_OUTPUT_DELIM);
     }
 
   /* Calculate the altitude using the barometric pressure sensor */
@@ -78,9 +80,19 @@ void Position::update()
       SEND(temperature);
       SEND(SERIAL_OUTPUT_DELIM);
       /* Convert atmospheric pressure, SLP and temp to altitude    */
-      SENDLN(bmp.pressureToAltitude(seaLevelPressure,
-				  bmp_event.pressure,
-				  temperature)); 
+      if (altitude < 0)
+	{
+	  altitude = bmp.pressureToAltitude(seaLevelPressure,
+					    bmp_event.pressure,
+					    temperature);
+	}
+      else
+	{
+	  altitude = bmp.pressureToAltitude(seaLevelPressure,
+					    bmp_event.pressure,
+					    temperature) * 0.7 + altitude * 0.3; //TODO: what???
+	}
+      SENDLN(altitude);
     }
   
 }

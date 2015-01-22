@@ -95,27 +95,25 @@ void parse_force(Parser &parser, AIRegistry::client &client)
     altitude = alti;
   client.query(AIRegistry::WRITE, PATH_SPEED, ares.str());
   Vect begin(stringToAngle(ax) * FORCE_UNIT, stringToAngle(ay) * FORCE_UNIT, stringToAngle(az) * FORCE_UNIT);
-
-  //  std::cout << begin << std::endl;
-   std::cout << "LOLOL " << alti - altitude << std::endl;
+  Position a(Gps(0,0,0), Vect(0, 0, (alti - altitude) * 1000));
+  client.query(AIRegistry::WRITE, PATH_POSITION, a.Serialize());
   Vect gravity(0, 0, -(FORCE_GRAVITY * FORCE_UNIT));
   gravity.RotX(o.X().GetRad());
   gravity.RotY(o.Y().GetRad());
   gravity.RotZ(o.Z().GetRad());
-
+  
   o = o * FORCE_UNIT;
   gravity = begin - gravity;
   //  std::cout << gravity << std::endl;  
   double sec = (tmptime - time) / FORCE_TIME;
   double timespan = 1.0 / sec;
-
+  
   //  gravity = gravity * timespan;
   speed = speed + gravity;
-  //std::cout << gravity << std::endl;
-  //  std::cout << "Diff time = " << tmptime - time << std::endl;
+
   time = tmptime;
-  // std::cout << "Orientation (deg) : " << ox << ";" << oy << ";" << oz << "  (rad) : " << ores.str() << std::endl;
-  // std::cout << "Acceleration (N) : " << ax << ";" << ay << ";" << az << "  (N) : " << ares.str() << std::endl;
+  std::cout << "Orientation (deg) : " << ox << ";" << oy << ";" << oz  << std::endl;
+  std::cout << "Acceleration (N) : " << ax << ";" << ay << ";" << az << std::endl;
 }
 
 void parse_statistics(Parser &parser, AIRegistry::client &client)

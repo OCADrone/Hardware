@@ -56,6 +56,7 @@ void setup() {
   motors.setup();
 }
 
+//Buffer we use to get command (chars come one by one..)
 String cmd = "";
 
 void loop() {

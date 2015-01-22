@@ -11,6 +11,7 @@
 
 #include <3DGeo/orientation.hh>
 #include <3DGeo/vect.hh>
+#include <3DGeo/position.hh>
 
 //#include "drone.hh"
 

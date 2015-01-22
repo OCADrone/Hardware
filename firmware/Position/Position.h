@@ -28,6 +28,7 @@ class Position : public ISensor
   Adafruit_BMP085_Unified       bmp;
   Adafruit_L3GD20_Unified       gyro; 
   Adafruit_10DOF                dof;
+  float				altitude;
 
  public:
 
@@ -35,6 +36,7 @@ class Position : public ISensor
   virtual void setup();
   virtual  void update();
 
+  
   
 };
 

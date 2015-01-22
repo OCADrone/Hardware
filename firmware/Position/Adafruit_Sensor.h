@@ -52,7 +52,7 @@ typedef enum
   SENSOR_TYPE_PRESSURE              = (6),
   SENSOR_TYPE_PROXIMITY             = (8),
   SENSOR_TYPE_GRAVITY               = (9),
-  SENSOR_TYPE_LINEAR_ACCELERATION   = (10),  /**< Acceleration not including gravity */
+  SENSOR_TYPE_LINEAR_ACCELERATION   = (10),  /**< Acceleration not including gravity */ //TODO: should we analyse this?
   SENSOR_TYPE_ROTATION_VECTOR       = (11),
   SENSOR_TYPE_RELATIVE_HUMIDITY     = (12),
   SENSOR_TYPE_AMBIENT_TEMPERATURE   = (13),
